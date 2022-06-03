@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="card shadow-sm">
+        <div class="card-header d-flex align-items-center">
+            <div class="flex-grow-1">
+                <h3 class="card-title">Registered Contacts</h3>
+            </div>
+            <div>
+                <a href="/" class="btn btn-sm btn-primary">Create New Contact</a>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Names</th>
+                        <th>Company</th>
+                        <th>Position</th>
+                        <th>Phone 1</th>
+                        <th>Phone 2</th>
+                        <th>Email</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each users}}
+                        <tr>
+                            <td>{{title}}</td>
+                            <td>{{name}}</td>
+                            <td>{{company}}</td>
+                            <td>{{position}}</td>
+                            <td>{{phone1}}</td>
+                            <td>{{phone2}}</td>
+                            <td>{{email}}</td>
+                            <td>
+                                <div class="btn-group">
+
+                                    <a href="/users/print/{{id}}/first" class="btn btn-primary btn-sm"> First Card</a>
+                                    <a href="/users/print/{{id}}/second" class="btn btn-success btn-sm"> Second Card</a>
+                                </div>
+                            </td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

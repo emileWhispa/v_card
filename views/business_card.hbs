@@ -1,0 +1,247 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- You don't have to include font-awesome. If you don't, the card will fall back gracefully to a Materialize Icon -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+
+    <style>
+        /**
+    * Business Card - Materialize Styled
+    */
+        .businessCard {
+            width: 600px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 50px;
+            font-family: 'lato','sans-serif';
+            font-size: 1.1em;
+            position: relative;
+        }
+        .businessCard .fullName {
+            font-weight: bolder;
+            font-size: 1.5em;
+        }
+        .businessCard .jobTitle {
+            font-style: italic;
+            font-size: 1.3em;
+        }
+        .businessCard .profilePictureWrapper {
+            overflow: hidden;
+            border-radius: 50%;
+            padding: 20px;
+            height: 230px;
+            width: 230px;
+            border: 4px solid black;
+            margin-top: 20px;
+        }
+        .businessCard .linksAndDetailsSection .rowJoinerWrapper {
+            width: 34px;
+            height: 15px;
+            padding-left: 0.75rem;
+            min-height: 1px;
+            position: relative;
+            text-align: center;
+            z-index: 999;
+            float: left;
+            margin-bottom: -1px;
+            margin-top: -1px;
+        }
+        .businessCard .linksAndDetailsSection .rowJoiner {
+            width: 50%;
+            height: 100%;
+            margin-left: auto;
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+        }
+        .businessCard .linkedInURL i, .businessCard .codingProfileURL i {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            text-align: center;
+            font-size: large;
+        }
+        .businessCard .linksAndDetailsSection i.fa {
+            font-size: x-large;
+        }
+        .businessCard .linksAndDetailsSection .iconWrapper {
+            display: inline-block;
+            width: 34px;
+            height: 31px;
+            padding-top: 3px;
+            padding-left: 4px;
+            margin-right: 10px;
+            border-radius: 8px;
+            border: 1px solid black;
+
+        }
+        .businessCard .linksAndDetailsSection .textWrapper {
+            display: inline-block;
+        }
+        .businessCard .iconsSolidBackground {
+            background-color: black;
+            color: white !important;
+        }
+        .businessCard .diagonals {
+            position: absolute;
+            height: 200%;
+            width: 14px;
+            top: -50%;
+            right: 182px;
+            border-left: 4px solid red;
+            border-right: 4px solid red;
+            transform: rotateZ(24deg);
+            background-color: #38013d;
+        }
+        .businessCard > .card-panel {
+            position: relative;
+            width: 600px;
+            height: 320px;
+            background-color: unset;
+        }
+        .businessCard .background {
+            width: 100%;
+            position: absolute;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            background-color: white;
+        }
+        .businessCard .ageWrapper {
+            margin-top: 4px;
+            font-size: medium;
+            font-style: italic;
+        }
+        .businessCard .linksAndDetailsSection {
+            min-height: 88px;
+        }
+        .businessCard .fixedUpperRightToolbar {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+        @media (max-width: 600px) {
+            .businessCard .profilePictureWrapper {
+                margin-top: 0px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="businessCard materialize rounded-xl">
+        <div class="background">
+            <div class="diagonals"></div>
+        </div>
+        <div class="card-panel rounded-lg" style="border-radius: 25px;">
+            <div class="row">
+                <div class="col s8 leftSide">
+                    <div class="d-flex flex-column h-100">
+                        <div class=" flex-grow-1">
+                            <div>
+                                <img src="{{logo}}" alt="Logo" style="height: 80px;">
+                            </div>
+                        </div>
+                        <div class="fullName">{{name}}</div>
+                        <div class="divider s12" style="height: 2px;"></div>
+                        <div class="jobTitle s11 offset-s1">{{position}}</div>
+                    </div>
+                    <!--                <div class="row">-->
+                    <!--                    <div class="col s11 offset-s1 linksAndDetailsSection">-->
+                    <!--&lt;!&ndash;                        <div class="emailAddress col s12 valign-wrapper">&ndash;&gt;-->
+                    <!--&lt;!&ndash;                            <div class="iconWrapper z-depth-2 iconsSolidBackground">&ndash;&gt;-->
+                    <!--&lt;!&ndash;                                <div class="icon">&ndash;&gt;-->
+                    <!--&lt;!&ndash;                                    <i class="material-icons left">email</i>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                            <div class="textWrapper">&ndash;&gt;-->
+                    <!--&lt;!&ndash;                                <a href="mailto:email@example.com" target="_blank">email@example.com</a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        <div class="rowJoinerWrapper"><div class="rowJoiner iconsSolidBackground"></div></div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        <div class="geography col s12 valign-wrapper">&ndash;&gt;-->
+                    <!--&lt;!&ndash;                            <div class="iconWrapper z-depth-2 iconsSolidBackground">&ndash;&gt;-->
+                    <!--&lt;!&ndash;                                <div class="icon">&ndash;&gt;-->
+                    <!--&lt;!&ndash;                                    <i class="material-icons left">map</i>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                            <div class="textWrapper">&ndash;&gt;-->
+                    <!--&lt;!&ndash;                                <span>Greater Seattle Area</span>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        <div class="rowJoinerWrapper"><div class="rowJoiner iconsSolidBackground"></div></div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        <div class="linkedInURL col s12 valign-wrapper">&ndash;&gt;-->
+                    <!--&lt;!&ndash;                            <div class="iconWrapper z-depth-2 iconsSolidBackground">&ndash;&gt;-->
+                    <!--&lt;!&ndash;                                <div class="icon">&ndash;&gt;-->
+                    <!--&lt;!&ndash;                                    <i class="material-icons left">link</i><i class="fa fa-linkedin-square iconsSolidBackground" aria-hidden="true"></i>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                            <div class="textWrapper">&ndash;&gt;-->
+                    <!--&lt;!&ndash;                                <a href="https://www.linkedin.com/in/joshuatzucker" target="_blank">LinkedIn</a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        <div class="rowJoinerWrapper"><div class="rowJoiner iconsSolidBackground"></div></div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        <div class="codingProfileURL col s12 valign-wrapper">&ndash;&gt;-->
+                    <!--&lt;!&ndash;                            <div class="iconWrapper z-depth-2 iconsSolidBackground">&ndash;&gt;-->
+                    <!--&lt;!&ndash;                                <div class="icon">&ndash;&gt;-->
+                    <!--&lt;!&ndash;                                    <i class="material-icons left">code</i><i class="fa fa-github iconsSolidBackground" aria-hidden="true"></i>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                            <div class="textWrapper">&ndash;&gt;-->
+                    <!--&lt;!&ndash;                                <a href="https://github.com/joshuatz" target="_blank">Github</a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+                    <!--                    </div>-->
+                    <!--                </div>-->
+                </div>
+                <div class="col s4 rightSide">
+                    <div class="">
+                        <div class="profilePictureWrapper s12 z-depth-2 bg-white">
+                            <img alt="QR Code" class="profilePicture responsive-img" src="{{url}}" style="height: 100%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="text-center mt-5"><a href="#" class="btn btn-outline-primary" onclick="printDiv(document.querySelector('.businessCard'))">Download Image</a></div>
+</div>
+
+<script src="http://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+    function printDiv( div ) {
+        html2canvas(div,{
+            backgroundColor : null
+        }).then(function(canvas) {
+            canvas.toDataURL("image/png");
+            var link = document.createElement('a');
+            link.setAttribute('href', canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"));
+
+            var din = document.createElement("div");
+            var lb = document.createElement("span");
+            lb.className = "text-red";
+            din.appendChild(lb);
+            var input = document.createElement("input");
+            input.className = "form-control";
+            input.type = "text";
+
+            link.setAttribute('download',"image.png");
+            link.click();
+            document.body.appendChild(link);
+        });
+    }
+
+</script>
+</body>
+</html>
